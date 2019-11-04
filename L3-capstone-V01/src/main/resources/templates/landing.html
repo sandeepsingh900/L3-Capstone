@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+</head>
+
+<body>
+	<!-- container section start -->
+	<section id="container" class="">
+		<header
+			th:replace="fragments/head_unauth_background :: head_unauth_background"></header>
+
+		<!--header end-->
+
+		<!--main content start-->
+		<section id="main-content">
+			<div class="row">
+				<section class="wrapper">
+					<h2>Customers</h2>
+					<table
+						class="table table-bordered table-striped table-hover table-sm table-responsive">
+						<tr>
+							<th style="width: 30px;">SSN</th>
+							<th style="width: 40px;">First Name</th>
+							<th style="width: 60px;">Last Name</th>
+							<th style="width: 20px;">City</th>
+							<th style="width: 30px;">State</th>
+							<th style="width: 20px;">Street Address</th>
+							<th style="width: 10px;">DoB</th>
+
+						</tr>
+						<tbody>
+							<th:block th:each="item: ${customers}">
+								<tr>
+									<td><a th:href="@{'/customer/'+${item.ssn}}"><span
+											th:text="${item.ssn}"></span></a></td>
+									<td><span th:text="${item.firstName}"></span></td>
+									<td><span th:text="${item.lastName}"></span></td>
+									<td><span th:text="${item.city}"></span></td>
+									<td><span th:text="${item.state}"></span></td>
+									<td><span th:text="${item.streetAddress}"></span></td>
+									<td><span th:text="${item.dob}"></span></td>
+								</tr>
+							</th:block>
+						</tbody>
+					</table>
+					<button type="button" class="btn btn-md"
+						onclick="window.location = '/customer'"
+						style="width: 150px; border-radius: 25px; background: transparent; border-color: #646e6f; border-style: solid; border-width: 1px; margin-top: 20px;">
+						<span style="color: #008091;"><b>Add Customer</b></span>
+					</button>
+				</section>
+			</div>
+		</section>
+	</section>
+
+	<!-- container section start -->
+
+	<!-- javascripts -->
+	<script src="../js/jquery.js"></script>
+	<script src="../js/jquery-ui-1.10.4.min.js"></script>
+	<script src="../js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript"
+		src="../js/jquery-ui-1.9.2.custom.min.js"></script>
+	<!-- bootstrap -->
+	<script src="../js/bootstrap.min.js"></script>
+	<!-- nice scroll -->
+	<script src="../js/jquery.scrollTo.min.js"></script>
+	<script src="../js/jquery.nicescroll.js" type="text/javascript"></script>
+	<!-- charts scripts -->
+
+	<!--custome script for all page-->
+	<script src="../js/scripts.js"></script>
+	<!-- custom script for this page-->
+</body>
+</html>
